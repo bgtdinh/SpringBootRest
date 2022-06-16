@@ -50,4 +50,22 @@ public class EmployeeServiceImpl implements EmployeeService{
     //lamda expression
     return employeeRepository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Employee", "Id", id));
   }
+
+
+
+  @Override
+  public Employee updateEmployee(Employee employee, long id) {
+
+    //check if employee exists
+    Employee existingEmployee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee", "Id", id));
+
+    existingEmployee.setFirstName(employee.getFirstName());
+    existingEmployee.setLastName(employee.getLastName());
+    existingEmployee.setEmail(employee.getEmail());
+
+    employeeRepository.save(existingEmployee);
+    return existingEmployee;
+  }
+
+
 }

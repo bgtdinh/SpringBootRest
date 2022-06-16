@@ -32,11 +32,23 @@ public class Employee {
   public String getEmail() {
     return email;
   }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
   @Column(name="first_name", nullable = false)
   private String firstName;
+
   @Column(name="last_name", nullable = false)
   private String lastName;
   @Column(name="email", nullable = false)
   private String email;
+
+
 }
